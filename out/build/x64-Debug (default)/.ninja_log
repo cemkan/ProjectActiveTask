@@ -1,0 +1,4 @@
+# ninja log v5
+1	1637	641064440	test/CMakeFiles/gtester.dir/test.cpp.obj	e7d6ed29069c889b
+1637	1858	641064440	bin/gtester.exe	576fe437008e93be
+0	452	641949974	bin/gtester.exe	576fe437008e93be

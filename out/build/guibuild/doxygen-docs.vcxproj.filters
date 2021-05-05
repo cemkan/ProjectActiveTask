@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\user\source\repos\ProjectActiveTask\out\build\guibuild\CMakeFiles\996cffde3e3481ef7a78a37e48c4282c\doxygen-docs.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\user\source\repos\ProjectActiveTask\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="C:\Users\user\source\repos\ProjectActiveTask\out\build\guibuild\CMakeFiles\doxygen-docs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{99A5D7AB-CC9A-39C5-8D2F-306A1A206D97}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

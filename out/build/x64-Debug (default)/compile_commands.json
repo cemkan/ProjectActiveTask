@@ -1,0 +1,7 @@
+[
+{
+  "directory": "C:/Users/user/source/repos/ProjectActiveTask/out/build/x64-Debug (default)",
+  "command": "C:\\PROGRA~2\\MIB055~1\\2019\\COMMUN~1\\VC\\Tools\\MSVC\\1428~1.293\\bin\\Hostx64\\x64\\cl.exe  /nologo /TP -DGTEST_HAS_TR1_TUPLE=0 -DGTEST_LANG_CXX11=1 -I..\\..\\..\\include\\ActiveTask\\. -IC:\\Users\\user\\.conan\\data\\gtest\\1.10.0\\_\\_\\package\\875c67f4d8a79bdd002908b75efce119eb82836d\\include /DWIN32 /D_WINDOWS /W3 /GR /EHsc  /MDd /Zi /Ob0 /Od /RTC1 /Fotest\\CMakeFiles\\gtester.dir\\test.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\Users\\user\\source\\repos\\ProjectActiveTask\\test\\test.cpp",
+  "file": "C:/Users/user/source/repos/ProjectActiveTask/test/test.cpp"
+}
+]
