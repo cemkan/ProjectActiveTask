@@ -72,7 +72,7 @@ protected:
 		return workCount;
 	}
 	
-	[[nodiscard]]
+	//[[nodiscard]]
 	std::thread::id GetMyTaskID() const noexcept
 	{
 		return thr.get_id();
