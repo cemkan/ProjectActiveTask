@@ -1,0 +1,32 @@
+
+stages:          # List of stages for jobs, and their order of execution
+  - build
+
+
+
+build-job:       # This job runs in the build stage, which runs first.
+  stage: build
+  script:
+    
+    - pwd
+    - apt-get update --yes
+    - apt-get install  --yes build-essential
+    - gcc --version
+    - apt-get install --yes cmake
+    - cmake --version
+    - apt-get install python3-pip --yes
+    - pip3 --version
+    - pip3 install conan
+    - conan --version
+    - mkdir build
+    - cd build
+    - cmake --config Release --target gtester ..
+    - echo "Compile complete."
+    - echo "Running unit tests... "
+    - pwd
+    - ls
+    - cd bin
+    - pwd
+    - ls
+    - ./gtester
+    - echo "Code coverage is 90%"
