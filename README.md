@@ -23,5 +23,3 @@ Any function given as parameter to ExecuteOnMyThread will be executed on a task 
 - mkdir build
 - cd build
 - cmake ..
-
-gitlab mirror test
