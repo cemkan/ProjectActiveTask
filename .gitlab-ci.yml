@@ -20,7 +20,7 @@ build-job:       # This job runs in the build stage, which runs first.
     - conan --version
     - mkdir build
     - cd build
-    - cmake --target gtester.out ..
+    - cmake --target gtester ..
     - make
     - echo "Compile complete."
     - echo "Running unit tests... "
@@ -30,4 +30,4 @@ build-job:       # This job runs in the build stage, which runs first.
     - pwd
     - ls
     - ./gtester
-    - echo "Code coverage is 90%"
+    - echo "Code coverage is TBD"
