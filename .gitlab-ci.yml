@@ -21,6 +21,7 @@ build-job:       # This job runs in the build stage, which runs first.
     - mkdir build
     - cd build
     - cmake --target gtester.out ..
+    - make
     - echo "Compile complete."
     - echo "Running unit tests... "
     - pwd
