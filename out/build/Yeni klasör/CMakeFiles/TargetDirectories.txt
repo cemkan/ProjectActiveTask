@@ -1,6 +1,0 @@
-C:/Users/user/source/repos/ProjectActiveTask/out/build/Yeni klasör/CMakeFiles/RUN_TESTS.dir
-C:/Users/user/source/repos/ProjectActiveTask/out/build/Yeni klasör/CMakeFiles/ALL_BUILD.dir
-C:/Users/user/source/repos/ProjectActiveTask/out/build/Yeni klasör/CMakeFiles/ZERO_CHECK.dir
-C:/Users/user/source/repos/ProjectActiveTask/out/build/Yeni klasör/include/ActiveTask/CMakeFiles/RUN_TESTS.dir
-C:/Users/user/source/repos/ProjectActiveTask/out/build/Yeni klasör/test/CMakeFiles/gtester.dir
-C:/Users/user/source/repos/ProjectActiveTask/out/build/Yeni klasör/test/CMakeFiles/RUN_TESTS.dir

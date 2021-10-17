@@ -1,16 +1,16 @@
 #include "gtest/gtest.h"
 #include "ActiveTask.h"
+#include <chrono>
 
 class CActiveTest : ActiveTask {
 
 public:
-	CActiveTest()
-	{
-	};
+	CActiveTest() = default;
 
 	void Execute(std::function<void()> _func)
 	{
-		ExecuteOnMyTask(_func);
+		ExecuteOnMyTask(std::move(_func));
+
 	}
 
 	template<typename Function, typename... Arguments>
@@ -41,6 +41,8 @@ TEST(Logic, OwnSeperateTask)
 {
 	CActiveTest test;
 	EXPECT_FALSE(std::this_thread::get_id() == test.GetID());
+
+	
 }
 
 TEST(Logic, SeperateTaskWorks)
@@ -70,37 +72,6 @@ TEST(Logic, MainTaskDoesntWaitOnSeperateTask)
 	EXPECT_TRUE(elapsed.count() < 1000);
 }
 
-/*TEST(Logic, CreateDataRace)
-{
-	uint32_t sharedResource = 0;
-	constexpr uint32_t activeObjectCount = 200;
-	constexpr uint32_t iterateCount = 1000;
-
-	CActiveTest activeObjects[activeObjectCount];
-
-	for (uint32_t i = 0; i < activeObjectCount; i++)
-	{
-		for (uint32_t j = 0; j < iterateCount; j++)
-		{
-			activeObjects[i].Execute([&]() {
-				uint32_t cache = sharedResource;
-				cache++;
-				using namespace std::chrono_literals;
-				std::this_thread::sleep_for(0ms);		//for context switch
-				sharedResource = cache;
-			});
-		}
-	}
-	for (uint32_t i = 0; i < activeObjectCount; i++)
-	{
-		while (activeObjects[i].GetWorkCount() > 0)
-		{
-			ReSchedule();
-		}
-	}
-	
-	EXPECT_NE(sharedResource, (activeObjectCount * iterateCount));
-}*/
 
 TEST(Logic, SolvedDataRace)
 {
@@ -140,7 +111,7 @@ TEST(Logic, SolvedDataRace)
 uint32_t counter;
 void FuncWithNoArg()
 {
-	counter++;
+	counter+=1;
 }
 TEST(Functionality, ExecuteFuncWithNoParams)
 {
@@ -152,7 +123,7 @@ TEST(Functionality, ExecuteFuncWithNoParams)
 	ReSchedule();
 	
 	
-	EXPECT_FALSE(before == counter);
+	EXPECT_TRUE(before + 1 == counter);
 }
 
 uint32_t initiallyZero = 0;
@@ -163,21 +134,23 @@ void FuncWithArg(uint32_t rvalue)
 TEST(Functionality, ExecuteLambda)
 {
 	CActiveTest test;
-	test.Execute([]() {
-		FuncWithArg(5);
+	const uint32_t SOME_NUMBER = 5;
+	test.Execute([&]() {
+		FuncWithArg(SOME_NUMBER);
 	});
 
 	ReSchedule();
 
-	EXPECT_TRUE(initiallyZero == 5);
+	EXPECT_TRUE(initiallyZero == SOME_NUMBER);
 }
 
 TEST(Functionality, ExecuteFuncWithArgs)
 {
 	CActiveTest test;
-	test.Execute(FuncWithArg, 5);
+	const uint32_t SOME_NUMBER = 5;
+	test.Execute(FuncWithArg, SOME_NUMBER);
 
 	ReSchedule();
 
-	EXPECT_TRUE(initiallyZero == 5);
+	EXPECT_TRUE(initiallyZero == SOME_NUMBER);
 }

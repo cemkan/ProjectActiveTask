@@ -1,3 +1,0 @@
-C:/Users/user/source/repos/ProjectActiveTask/out/build/guibuild/CMakeFiles/doxygen-docs.dir
-C:/Users/user/source/repos/ProjectActiveTask/out/build/guibuild/CMakeFiles/ALL_BUILD.dir
-C:/Users/user/source/repos/ProjectActiveTask/out/build/guibuild/CMakeFiles/ZERO_CHECK.dir

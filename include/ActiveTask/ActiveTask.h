@@ -1,7 +1,11 @@
 #pragma once
+
 #include <mutex>
+#include <thread>
+#include <condition_variable>
 #include <queue>
 #include <functional>
+#include <atomic>
 
 class ActiveTask
 {
@@ -29,14 +33,15 @@ protected:
 			while (alive)
 			{
 				std::unique_lock<std::mutex> ul(mtx);
-				cv.wait(ul, [&]() {return ((false == queWork.empty()) || (false == alive)); });
-				if (alive == false)
+				cv.wait(ul, [&]() {return ((!queWork.empty()) || (!alive)); });
+				if (!alive)
 				{
 					ul.unlock();
 					break;
 				}
 				std::function<void()> func = queWork.front();
-				std::invoke(func);
+				//std::invoke(func);
+				func();
 				queWork.pop();
 				ul.unlock();
 			}
@@ -66,14 +71,15 @@ protected:
 		}
 		return workCount;
 	}
-
+	
+	[[nodiscard]]
 	std::thread::id GetMyTaskID() const noexcept
 	{
 		return thr.get_id();
 	}
 
 private:
-	bool alive = true;
+	std::atomic<bool> alive{true};
 	std::mutex mtx;
 	std::condition_variable cv;
 	std::queue<std::function<void()>> queWork;

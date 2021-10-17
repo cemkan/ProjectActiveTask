@@ -17,6 +17,7 @@ endif()
 # Generate compile_commands.json to make it easier to work with clang based tools
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
+
 option(ENABLE_IPO "Enable Interprocedural Optimization, aka Link Time Optimization (LTO)" OFF)
 
 if(ENABLE_IPO)
@@ -34,8 +35,10 @@ if(ENABLE_IPO)
 endif()
 if(CMAKE_CXX_COMPILER_ID MATCHES ".*Clang")
   add_compile_options(-fcolor-diagnostics)
+  #set( CMAKE_CXX_FLAGS "${CMAKE_C_FLAGS} -stdlib=libc++")
 elseif(CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
   add_compile_options(-fdiagnostics-color=always)
+  #set( CMAKE_CXX_FLAGS "${CMAKE_C_FLAGS} -std=c++17")
 else()
   message(STATUS "No colored compiler diagnostic set for '${CMAKE_CXX_COMPILER_ID}' compiler.")
 endif()
