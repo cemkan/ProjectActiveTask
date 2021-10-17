@@ -1,5 +1,7 @@
 # ProjectActiveTask
 
+[![pipeline status](https://gitlab.com/cemkan/ProjectActiveTask/badges/master/pipeline.svg)](https://gitlab.com/cemkan/ProjectActiveTask/-/commits/master)
+
 Active Task is a header only library which provides exclusive thread to any class who inherit from it.
 
 ActiveTask is a helper tool that abstracts thread implementation.
