@@ -9,7 +9,6 @@
 
 class ActiveTask
 {
-
 public:
 	//copy and move ops are forbidden
 	ActiveTask(const ActiveTask&) = delete;
@@ -48,8 +47,6 @@ protected:
 		});
 	}
 
-	
-
 	template<typename Function, typename... Arguments>
 	void ExecuteOnMyTask(Function funcToBind, Arguments... paramsToBind)
 	{
@@ -72,7 +69,6 @@ protected:
 		return workCount;
 	}
 	
-	//[[nodiscard]]
 	std::thread::id GetMyTaskID() const noexcept
 	{
 		return thr.get_id();
