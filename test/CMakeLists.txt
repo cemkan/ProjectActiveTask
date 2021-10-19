@@ -4,12 +4,24 @@
 cmake_minimum_required (VERSION 3.8)
 
 # Add source to this project's executable.
-add_executable (gtester "test.cpp")
+
+
 
 
 # TODO: Add tests and install targets if needed.
 
-target_link_libraries(gtester PRIVATE project_options project_warnings ActiveTask CONAN_PKG::gtest)
+if(CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
+    message("Building with GNU, including coverage")
+    add_compile_options("--coverage")
+    add_executable (gtester "test.cpp")
+    target_link_libraries(gtester PRIVATE ActiveTask CONAN_PKG::gtest gcov)
+else()
+    message("Skipping coverage")
+    add_executable (gtester "test.cpp")
+    target_link_libraries(gtester PRIVATE project_options project_warnings ActiveTask CONAN_PKG::gtest)
+endif()
+
+
 
 #target_link_libraries(gtester PRIVATE ActiveTask)
 

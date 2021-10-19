@@ -5,7 +5,7 @@ cmake_minimum_required (VERSION 3.8)
 
 add_library(ActiveTask INTERFACE)
 
-message(STATUS "Adding ActiveTask HOL")
+message(STATUS "Adding ActiveTask as Header Only Library")
 target_include_directories(ActiveTask INTERFACE .)
 
 #target_include_directories(aaa INTERFACE
