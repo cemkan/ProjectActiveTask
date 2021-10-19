@@ -101,13 +101,9 @@ TEST(Functionality, ExecuteLambda)
 {
 	CActiveTest test;
 	const uint32_t SOME_NUMBER = 5;
-	test.Execute(
-		[&]
-		() 
-		{
-			FuncWithArg(SOME_NUMBER);
-		}
-	);
+	test.Execute([&](){
+		FuncWithArg(SOME_NUMBER);
+	});
 
 	ReSchedule();
 
