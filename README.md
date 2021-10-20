@@ -4,7 +4,7 @@
 
 [![coverage report](https://gitlab.com/cemkan/ProjectActiveTask/badges/master/coverage.svg)](https://gitlab.com/cemkan/ProjectActiveTask/-/commits/master)
 
-[![Total alerts](https://img.shields.io/lgtm/alerts/g/cemkan/ProjectActiveTask.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/cemkan/ProjectActiveTask/alerts/)
+[![Language grade: C/C++](https://img.shields.io/lgtm/grade/cpp/g/cemkan/ProjectActiveTask.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/cemkan/ProjectActiveTask/context:cpp)
 
 Active Task is a header only library which provides exclusive thread to any class who inherit from it.
 
